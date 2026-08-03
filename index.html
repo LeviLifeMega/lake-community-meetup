@@ -114,6 +114,14 @@ h1{
   background:radial-gradient(circle at 50% 55%, rgba(61,219,196,.28), rgba(15,138,114,.16) 45%, transparent 68%);
 }
 .hero-img img{position:relative; margin:0 auto; width:100%; max-width:420px; border-radius:20px; border:1px solid rgba(61,219,196,.28); box-shadow:0 18px 60px rgba(0,0,0,.55)}
+.hero-placeholder{
+  position:relative; margin:0 auto; width:100%; max-width:420px; aspect-ratio:4/5; border-radius:20px;
+  border:1px solid rgba(61,219,196,.28); box-shadow:0 18px 60px rgba(0,0,0,.55);
+  background:linear-gradient(160deg, rgba(15,138,114,.35), rgba(6,22,21,.9));
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+  font-size:52px; text-align:center; color:var(--txt2);
+}
+.hero-placeholder span{font-size:16px; font-family:var(--hand); max-width:70%}
 
 section{padding:84px 0}
 .sec-t{font-size:clamp(24px,4vw,34px); font-weight:700; margin:0 0 8px; color:#fff}
@@ -256,7 +264,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
       </ul>
     </div>
 
-    <div class="hero-img rv"><img src="assets/lake-hero.jpg" alt="LAKE TLV - דק עץ עם נוף לאגם"></div>
+    <div class="hero-img rv"><div class="hero-placeholder">🌊<br><span>תמונה תתעדכן בקרוב</span></div></div>
   </div>
 </header>
 
@@ -267,7 +275,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
     </div>
-    <div class="price-tag">396 ₪ להרשמה</div>
+    <div class="price-tag">150 ₪ להרשמה</div>
     <a class="cta" href="#signup" id="cta-top">
       <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 7.1L22 10l-5.5 4.6L18 22l-6-3.9L6 22l1.5-7.4L2 10l7.1-.9z" fill="currentColor"/></svg>
       אני רוצה להצטרף <span class="chev">›</span>
@@ -281,9 +289,11 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
     <h2 class="sec-t gold">רגע מהאווירה</h2>
     <p class="sec-s">טעימה קצרה ממה שמחכה לכם</p>
     <div class="video-wrap">
-      <img src="assets/lake-hero.jpg" alt="LAKE TLV" style="width:100%;height:100%;object-fit:cover">
+      <div class="video-placeholder">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <span>סרטון הזמנה יתווסף בקרוב</span>
+      </div>
     </div>
-    <p class="vstatus">סרטון הזמנה יתווסף בקרוב</p>
   </div>
 </section>
 
@@ -394,7 +404,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
     <div class="final">
       <h2>מוכנים לבוקר שישנה לכם את השבוע?</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
-      <div class="price-tag">396 ₪ להרשמה</div><br>
+      <div class="price-tag">150 ₪ להרשמה</div><br>
       <a class="cta" href="https://wa.me/972533815167?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D7%A8%D7%99%D7%98%D7%A8%D7%99%D7%98%20%D7%94%D7%95%D7%95%D7%9C%D7%A0%D7%A1%2021.8">
         <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.297.347-.495.115-.198.058-.371-.024-.52-.082-.148-.669-1.612-.916-2.207-.241-.579-.486-.487-.668-.497-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347"/></svg>
         להרשמה בוואטסאפ <span class="chev">›</span>
@@ -417,7 +427,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 </footer>
 
 <div class="sticky">
-  <a class="cta" href="#signup">להרשמה - 396 ₪</a>
+  <a class="cta" href="#signup">להרשמה - 150 ₪</a>
 </div>
 </div>
 
