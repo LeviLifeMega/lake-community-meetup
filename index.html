@@ -65,7 +65,7 @@ a{color:var(--gold)}
 .bar .wrap{display:flex; align-items:center; justify-content:space-between; gap:14px}
 .logo{font-weight:700; font-size:20px; color:#fff; letter-spacing:.3px}
 .logo span{color:var(--gold)}
-.logo-img{height:36px; width:auto; display:block}
+.logo-img{height:52px; width:auto; display:block}
 .bar-meta{font-size:14px; color:var(--txt2); text-align:left}
 
 .hero{padding:52px 0 8px}
@@ -224,7 +224,40 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 }
 .anim .rv{opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.22,.85,.3,1), transform .8s cubic-bezier(.22,.85,.3,1)}
 .anim .rv.on{opacity:1; transform:none}
-@media (prefers-reduced-motion:reduce){*{transition:none !important} .anim .rv{opacity:1; transform:none}}
+
+.card{transition:transform .35s cubic-bezier(.22,.85,.3,1), box-shadow .35s ease, border-color .35s ease}
+.card:hover{transform:translateY(-6px); box-shadow:0 16px 40px rgba(61,219,196,.18); border-color:rgba(61,219,196,.4)}
+.num{transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.card:hover .num{transform:scale(1.15) rotate(-6deg)}
+
+.hero-placeholder{animation:floaty 5s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+.badge{animation:pulseGlow 2.6s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(61,219,196,.25)}50%{box-shadow:0 0 0 8px rgba(61,219,196,0)}}
+
+.price-tag{transition:transform .3s ease}
+.price-tag:hover{transform:scale(1.05)}
+
+.who li{transition:transform .25s ease}
+.who li:hover{transform:translateX(-6px)}
+.who li:hover svg{stroke:#fff}
+
+details{transition:border-color .3s ease, background .3s ease}
+details[open]{border-color:rgba(61,219,196,.4); background:rgba(61,219,196,.05)}
+summary::after{transition:transform .3s ease}
+
+.logo-img{transition:transform .3s ease}
+.bar .logo-img:hover{transform:scale(1.04)}
+
+.time li{transition:transform .25s ease}
+.time li:hover{transform:translateX(-4px)}
+.time li:hover::before{background:#fff; box-shadow:0 0 0 5px rgba(61,219,196,.28)}
+
+.wa-badge{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.wa:hover .wa-badge{transform:scale(1.15) rotate(8deg)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important} .anim .rv{opacity:1; transform:none}}
 </style>
 
 <div class="sky anim">
@@ -257,7 +290,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
         בוקר של פעם בחיים - מוגבל במקומות
       </span>
       <h1>ריטריט וולנס על שפת האגם</h1>
-      <p class="lead">צלילים מרפאים, יוגה מול המים, נשימות עמוקות וטבילה בקרח - בוקר שכולו תוכנן כדי להטעין אתכם באנרגיות, לפתוח את הלב ולדחוף אתכם קדימה. הגיעו פתוחים, סקרנים ומוכנים.</p>
+      <p class="lead">צלילים מרפאים, יוגה מול המים, נשימות עמוקות וטבילה בקרח 🦋 - בוקר שכולו תוכנן כדי להטעין אתכם באנרגיות ✨, לפתוח את הלב ❤️ ולדחוף אתכם קדימה. הגיעו פתוחים, סקרנים ומוכנים 😊</p>
       <ul class="facts">
         <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><b>יום שישי, 21.8.26</b></li>
         <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>08:30 - 13:30</li>
@@ -279,7 +312,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
     <div class="price-tag">150 ₪ להרשמה</div>
     <a class="cta" href="#signup" id="cta-top">
       <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 7.1L22 10l-5.5 4.6L18 22l-6-3.9L6 22l1.5-7.4L2 10l7.1-.9z" fill="currentColor"/></svg>
-      אני רוצה להצטרף <span class="chev">›</span>
+      אני רוצה להצטרף 🙌 <span class="chev">›</span>
     </a>
     <p class="cta-note">מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
   </div>
@@ -287,7 +320,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 
 <section>
   <div class="wrap center rv">
-    <h2 class="sec-t gold">רגע מהאווירה</h2>
+    <h2 class="sec-t gold">רגע מהאווירה 🌙</h2>
     <p class="sec-s">טעימה קצרה ממה שמחכה לכם</p>
     <div class="video-wrap">
       <div class="video-placeholder">
@@ -300,7 +333,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 
 <section>
   <div class="wrap rv">
-    <h2 class="sec-t gold center">מה מחכה לכם בבוקר הזה</h2>
+    <h2 class="sec-t gold center">מה מחכה לכם בבוקר הזה 🌟</h2>
     <p class="sec-s center">4 סדנאות, בוקר אחד, שינוי אחד גדול</p>
     <div class="grid g4">
       <div class="card">
@@ -330,7 +363,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 <section>
   <div class="wrap g2 grid rv" style="grid-template-columns:1fr 1fr">
     <div>
-      <h2 class="sec-t gold">למי זה מתאים</h2>
+      <h2 class="sec-t gold">למי זה מתאים 😍</h2>
       <ul class="who">
         <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>מי שרוצה לפרוק לחץ ולהתחדש מהיסוד</li>
         <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>מי שסקרן/ית לגבי טבילה במים קרים וסאונד הילינג</li>
@@ -340,7 +373,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
       <div class="warn">⚠️ הטבילה במי קרח דורשת בריאות תקינה. יש למלא טופס הצהרת בריאות לפני ההגעה (בהמשך הדף).</div>
     </div>
     <div>
-      <h2 class="sec-t gold">מה להביא איתכם</h2>
+      <h2 class="sec-t gold">מה להביא איתכם 🎒</h2>
       <ul class="who">
         <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>ביגוד נוח וגמיש ליוגה ולנשימות</li>
         <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>בגד ים / טייטס לטבילה בקרח</li>
@@ -355,7 +388,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 
 <section>
   <div class="wrap rv">
-    <h2 class="sec-t gold center">לוח הבוקר</h2>
+    <h2 class="sec-t gold center">לוח הבוקר ⏰</h2>
     <p class="sec-s center">08:30 - 13:30, LAKE TLV</p>
     <ul class="time">
       <li><b>08:30</b><span>הגעה, התארגנות והתכנסות</span></li>
@@ -371,7 +404,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
   <div class="wrap bio rv">
     <img src="assets/eyal.jpg" alt="אייל אברהם לוי" onerror="this.style.display='none'">
     <div>
-      <h2 class="sec-t gold">מי מוביל את הבוקר</h2>
+      <h2 class="sec-t gold">מי מוביל את הבוקר 🙏</h2>
       <p><b class="slog">אייל אברהם לוי</b> - מלווה תהליכי הגשמה עצמית וצמיחה אישית כבר 15 שנה, מייסד LeviLife.</p>
       <p>הבוקר הזה נבנה מתוך אמונה אחת: שכדי לפרוץ קדימה בחיים, צריך לפעמים לעצור, לנשום, ולתת לגוף ולנפש לעבור ריסט אמיתי.</p>
     </div>
@@ -403,12 +436,12 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 <section id="signup">
   <div class="wrap rv">
     <div class="final">
-      <h2>מוכנים לבוקר שישנה לכם את השבוע?</h2>
+      <h2>מוכנים לבוקר שישנה לכם את השבוע? 💛</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
       <div class="price-tag">150 ₪ להרשמה</div><br>
       <a class="cta" href="https://wa.me/972533815167?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D7%A8%D7%99%D7%98%D7%A8%D7%99%D7%98%20%D7%94%D7%95%D7%95%D7%9C%D7%A0%D7%A1%2021.8">
         <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.297.347-.495.115-.198.058-.371-.024-.52-.082-.148-.669-1.612-.916-2.207-.241-.579-.486-.487-.668-.497-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347"/></svg>
-        להרשמה בוואטסאפ <span class="chev">›</span>
+        להרשמה בוואטסאפ 😊 <span class="chev">›</span>
       </a>
       <p class="cta-note">לאחר ההרשמה תישלח אליכם קבוצת הוואטסאפ של האירוע וקישור לתשלום</p>
     </div>
@@ -436,7 +469,17 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 (function(){
   var els = document.querySelectorAll('.rv');
   var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el = e.target;
+        var cards = el.querySelectorAll('.card, .who li, .time li');
+        if(cards.length){
+          cards.forEach(function(c, i){ c.style.transitionDelay = (i*70)+'ms'; });
+        }
+        el.classList.add('on');
+        io.unobserve(el);
+      }
+    });
   }, {threshold:.15});
   els.forEach(function(el){ io.observe(el); });
 })();

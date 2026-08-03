@@ -139,6 +139,17 @@ footer p{margin:6px 0; font-size:15px; color:var(--txt2)}
   .yn-item{flex-direction:column; align-items:flex-start}
 }
 /*FIXUP-HAND*/.lead,.cta-note{font-family:var(--hand);font-weight:400;letter-spacing:1.1px;line-height:2}
+.logo-img{transition:transform .3s ease}
+.bar .logo-img:hover{transform:scale(1.04)}
+.cta{transition:transform .15s ease, box-shadow .15s ease}
+.wa-badge{transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.wa:hover .wa-badge{transform:scale(1.15) rotate(8deg)}
+.yn-item{transition:transform .2s ease, border-color .2s ease}
+.yn-item:hover{transform:translateX(-3px); border-color:rgba(61,219,196,.35)}
+.submit-btn{transition:transform .2s ease, box-shadow .2s ease}
+.submit-btn:hover:not(:disabled){transform:translateY(-2px); box-shadow:0 12px 30px rgba(232,169,58,.4)}
+#sigpad{transition:border-color .2s ease}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important}}
 </style>
 
 <div class="sky">
@@ -150,7 +161,7 @@ footer p{margin:6px 0; font-size:15px; color:var(--txt2)}
 
 <main class="wrap">
   <div class="final">
-    <h1>איזה כיף שנרשמת! 🧊</h1>
+    <h1>איזה כיף שנרשמת! 🧊🙌</h1>
     <p class="lead">ההרשמה שלך לריטריט הוולנס התקבלה. פרטי התשלום וקבוצת הוואטסאפ של הנרשמים יישלחו אליך בהמשך.</p>
     <ul class="facts">
       <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><b>יום שישי, 21.8.26</b></li>
