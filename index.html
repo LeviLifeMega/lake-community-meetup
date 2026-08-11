@@ -106,7 +106,7 @@ h1{
 .cta-note{font-size:14px; color:var(--txt2); margin:20px 0 0}
 .cta-zone{display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:52px}
 .arrows{display:flex; flex-direction:column; align-items:center; margin-bottom:24px}
-.arrows svg{width:30px; height:15px; stroke:#fff; fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; margin-bottom:-5px; animation:bob 1.6s ease-in-out infinite}
+.arrows svg{width:64px; height:30px; stroke:var(--gold); fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; margin-bottom:-12px; animation:bob 1.6s ease-in-out infinite}
 .arrows svg:nth-child(1){opacity:.3; animation-delay:0s}
 .arrows svg:nth-child(2){opacity:.6; animation-delay:.18s}
 .arrows svg:nth-child(3){opacity:1; animation-delay:.36s}
@@ -181,26 +181,25 @@ section{padding:84px 0}
 .slog{color:var(--gold); font-weight:700}
 .signup-form{max-width:420px; margin:22px auto 0; display:grid; gap:14px; text-align:right}
 .fld{display:grid; gap:6px}
-.fld span{font-size:15px; font-weight:700; color:#fff}
+.fld span{font-size:18px; font-weight:700; color:#fff}
 .fld input{
-  width:100%; font:inherit; font-size:16px; color:#fff; background:rgba(255,255,255,.06);
-  border:1px solid var(--line); border-radius:12px; padding:13px 15px; outline:none;
-  transition:border-color .2s ease, background .2s ease;
+  width:100%; font:inherit; font-size:18px; color:#2b1d05; background:#fbf3de;
+  border:1px solid #e8d6a8; border-radius:12px; padding:13px 15px; outline:none;
+  transition:border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
-.fld input::placeholder{color:rgba(255,255,255,.35)}
-.fld input:focus{border-color:var(--gold); background:rgba(255,255,255,.09)}
-.fld input.bad{border-color:#ff8a80; background:rgba(255,138,128,.08)}
-.signup-form .cta{width:100%; margin-top:4px; cursor:pointer}
+.fld input::placeholder{color:rgba(43,29,5,.4)}
+.fld input:focus{border-color:var(--gold); background:#fff8e8; box-shadow:0 0 0 3px rgba(242,194,96,.25)}
+.fld input.bad{border-color:#c0392b; background:#fbe4e1}
+.signup-form .cta{width:100%; margin-top:4px; cursor:pointer; padding-top:13px; padding-bottom:13px}
+.btn-emoji{font-size:30px; line-height:1; flex:none}
 .form-err{min-height:20px; margin:0; font-size:14px; color:#ff8a80; text-align:center}
 .consent{
-  display:flex; align-items:flex-start; gap:10px; cursor:pointer;
+  display:flex; align-items:center; gap:10px; cursor:pointer;
   font-size:14.5px; line-height:1.5; color:#fff; text-align:right;
-  background:rgba(255,255,255,.04); border:1px solid var(--line);
-  border-radius:12px; padding:12px 14px; transition:border-color .2s ease;
+  background:none; border:0; padding:2px 2px 4px;
 }
-.consent input{width:20px; height:20px; flex:none; margin-top:1px; accent-color:var(--gold); cursor:pointer}
-.consent:hover{border-color:var(--gold)}
-.consent.bad{border-color:#ff8a80; background:rgba(255,138,128,.08)}
+.consent input{width:20px; height:20px; flex:none; accent-color:var(--gold); cursor:pointer}
+.consent.bad{color:#ff8a80}
 .cta-plain{
   margin-top:16px; background:none; border:1px solid var(--line); color:var(--txt2);
   box-shadow:none; font-size:15px; padding:12px 22px;
@@ -362,8 +361,8 @@ summary::after{transition:transform .3s ease}
       </label>
       <p class="form-err" role="alert"></p>
       <button class="cta" type="submit">
-        <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 7.1L22 10l-5.5 4.6L18 22l-6-3.9L6 22l1.5-7.4L2 10l7.1-.9z" fill="currentColor"/></svg>
-        אני רוצה להצטרף 🙌 <span class="chev">›</span>
+        <span class="btn-emoji" aria-hidden="true">🧊</span>
+        אני רוצה להצטרף <span class="chev">›</span>
       </button>
     </form>
     <p class="cta-note">מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
@@ -511,8 +510,8 @@ summary::after{transition:transform .3s ease}
         </label>
         <p class="form-err" id="form-err" role="alert"></p>
         <button class="cta" type="submit">
-          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.297.347-.495.115-.198.058-.371-.024-.52-.082-.148-.669-1.612-.916-2.207-.241-.579-.486-.487-.668-.497-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347"/></svg>
-          שליחת ההרשמה 😊 <span class="chev">›</span>
+          <span class="btn-emoji" aria-hidden="true">🧊</span>
+          שליחת ההרשמה <span class="chev">›</span>
         </button>
       </form>
 
