@@ -105,6 +105,7 @@ h1{
 .cta:focus-visible{outline:3px solid #fff; outline-offset:3px}
 .cta-note{font-size:14px; color:var(--txt2); margin:34px 0 0}
 .form-title{font-size:clamp(22px,3.6vw,30px); font-weight:700; color:#fff; text-align:center; margin:0 0 20px}
+.star3d{width:1.05em; height:1.05em; vertical-align:-.14em; margin-inline-start:.28em; filter:drop-shadow(0 2px 4px rgba(0,0,0,.55))}
 .wa-float{
   position:fixed; inset-inline-end:18px; bottom:24px; z-index:60;
   width:58px; height:58px; border-radius:50%; background:#25d366;
@@ -421,7 +422,25 @@ summary::after{transition:transform .3s ease}
 
 <section>
   <div class="wrap rv">
-    <h2 class="sec-t gold center">מה מחכה לכם בבוקר הזה 🌟</h2>
+    <h2 class="sec-t gold center">מה מחכה לכם בבוקר המדהים הזה
+      <svg class="star3d" viewBox="0 0 28 28" aria-hidden="true">
+        <defs>
+          <linearGradient id="st3a" x1="0" y1="0" x2="0.4" y2="1">
+            <stop offset="0" stop-color="#fff6d8"/>
+            <stop offset=".4" stop-color="#f4c96a"/>
+            <stop offset=".75" stop-color="#dd9a2a"/>
+            <stop offset="1" stop-color="#a4670f"/>
+          </linearGradient>
+          <linearGradient id="st3b" x1="0" y1="0" x2="0.2" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 1.8l3.7 8.1 8.5.9-6.4 5.9 1.8 8.6L14 20.9 6.4 25.3l1.8-8.6L1.8 10.8l8.5-.9z"
+              fill="url(#st3a)" stroke="#8a5a10" stroke-width=".6" stroke-linejoin="round"/>
+        <path d="M14 1.8l3.7 8.1 8.5.9-6.4 5.9L14 14z" fill="url(#st3b)"/>
+      </svg>
+    </h2>
     <p class="sec-s center">4 סדנאות, בוקר אחד, שינוי אחד גדול</p>
     <div class="grid g4">
       <div class="card">
