@@ -185,6 +185,24 @@ section{padding:84px 0}
   background:radial-gradient(600px 300px at 50% 0%, rgba(15,138,114,.26), transparent 70%), rgba(255,255,255,.03);
 }
 .ltr{unicode-bidi:isolate; direction:ltr}
+.nebula-host{position:relative; isolation:isolate}
+.nebula{
+  position:absolute; inset:-12% -6%; z-index:-1; overflow:hidden; pointer-events:none;
+  border-radius:40px; filter:blur(64px); opacity:.5;
+}
+.nebula span{
+  position:absolute; display:block; border-radius:50%; mix-blend-mode:screen;
+  animation:drift 26s ease-in-out infinite;
+}
+.nebula span:nth-child(1){width:52%; height:72%; inset-inline-start:6%; top:-12%; background:#6f4bd8; animation-delay:0s}
+.nebula span:nth-child(2){width:46%; height:64%; inset-inline-end:4%; top:6%; background:#c8478f; animation-delay:-9s}
+.nebula span:nth-child(3){width:58%; height:68%; inset-inline-start:20%; bottom:-16%; background:#1fa9b8; animation-delay:-17s}
+@keyframes drift{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  33%{transform:translate3d(6%,-5%,0) scale(1.12)}
+  66%{transform:translate3d(-5%,6%,0) scale(.94)}
+}
+@media (prefers-reduced-motion:reduce){.nebula span{animation:none}}
 .fld{display:grid; gap:6px}
 .fld span{font-size:18px; font-weight:700; color:#fff}
 .fld input{
@@ -341,7 +359,8 @@ summary::after{transition:transform .3s ease}
   </div>
 </header>
 
-<div class="wrap">
+<div class="wrap nebula-host">
+  <div class="nebula" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="cta-zone rv">
     <div class="arrows" aria-hidden="true">
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
@@ -491,7 +510,8 @@ summary::after{transition:transform .3s ease}
 </section>
 
 <section id="signup">
-  <div class="wrap rv">
+  <div class="wrap rv nebula-host">
+    <div class="nebula" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="final">
       <h2>מוכנים לבוקר שישנה לכם את השבוע? 💛</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
