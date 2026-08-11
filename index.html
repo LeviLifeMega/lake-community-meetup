@@ -192,6 +192,15 @@ section{padding:84px 0}
 .fld input.bad{border-color:#ff8a80; background:rgba(255,138,128,.08)}
 .signup-form .cta{width:100%; margin-top:4px; cursor:pointer}
 .form-err{min-height:20px; margin:0; font-size:14px; color:#ff8a80; text-align:center}
+.consent{
+  display:flex; align-items:flex-start; gap:10px; cursor:pointer;
+  font-size:14.5px; line-height:1.5; color:#fff; text-align:right;
+  background:rgba(255,255,255,.04); border:1px solid var(--line);
+  border-radius:12px; padding:12px 14px; transition:border-color .2s ease;
+}
+.consent input{width:20px; height:20px; flex:none; margin-top:1px; accent-color:var(--gold); cursor:pointer}
+.consent:hover{border-color:var(--gold)}
+.consent.bad{border-color:#ff8a80; background:rgba(255,138,128,.08)}
 .cta-plain{
   margin-top:16px; background:none; border:1px solid var(--line); color:var(--txt2);
   box-shadow:none; font-size:15px; padding:12px 22px;
@@ -334,11 +343,29 @@ summary::after{transition:transform .3s ease}
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
     </div>
-    <div class="price-tag">396 ₪ להרשמה</div>
-    <a class="cta" href="#signup" id="cta-top">
-      <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 7.1L22 10l-5.5 4.6L18 22l-6-3.9L6 22l1.5-7.4L2 10l7.1-.9z" fill="currentColor"/></svg>
-      אני רוצה להצטרף 🙌 <span class="chev">›</span>
-    </a>
+    <form class="signup-form" novalidate>
+      <label class="fld">
+        <span>שם מלא</span>
+        <input type="text" name="name" autocomplete="name" required placeholder="ישראל ישראלי">
+      </label>
+      <label class="fld">
+        <span>אימייל</span>
+        <input type="email" name="email" autocomplete="email" required placeholder="name@example.com" dir="ltr">
+      </label>
+      <label class="fld">
+        <span>טלפון</span>
+        <input type="tel" name="tel" autocomplete="tel" required placeholder="050-0000000" dir="ltr" inputmode="tel">
+      </label>
+      <label class="consent">
+        <input type="checkbox" name="consent" required>
+        <span>אני מאשר/ת קבלת הודעות ומסרים מאייל אברהם לוי</span>
+      </label>
+      <p class="form-err" role="alert"></p>
+      <button class="cta" type="submit">
+        <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 7.1L22 10l-5.5 4.6L18 22l-6-3.9L6 22l1.5-7.4L2 10l7.1-.9z" fill="currentColor"/></svg>
+        אני רוצה להצטרף 🙌 <span class="chev">›</span>
+      </button>
+    </form>
     <p class="cta-note">מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
   </div>
 </div>
@@ -478,6 +505,10 @@ summary::after{transition:transform .3s ease}
           <span>טלפון</span>
           <input type="tel" id="f-tel" name="tel" autocomplete="tel" required placeholder="050-0000000" dir="ltr" inputmode="tel">
         </label>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>אני מאשר/ת קבלת הודעות ומסרים מאייל אברהם לוי</span>
+        </label>
         <p class="form-err" id="form-err" role="alert"></p>
         <button class="cta" type="submit">
           <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.297.347-.495.115-.198.058-.371-.024-.52-.082-.148-.669-1.612-.916-2.207-.241-.579-.486-.487-.668-.497-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347"/></svg>
@@ -531,31 +562,43 @@ summary::after{transition:transform .3s ease}
 })();
 
 (function(){
-  var form = document.getElementById('signup-form');
-  if(!form) return;
-  var name = document.getElementById('f-name'),
-      mail = document.getElementById('f-mail'),
-      tel  = document.getElementById('f-tel'),
-      err  = document.getElementById('form-err');
   var PHONE = '972533815167';
+  var forms = document.querySelectorAll('.signup-form');
 
-  function bad(el, msg){ el.classList.add('bad'); err.textContent = msg; el.focus(); return false; }
+  Array.prototype.forEach.call(forms, function(form){
+    var name = form.querySelector('[name="name"]'),
+        mail = form.querySelector('[name="email"]'),
+        tel  = form.querySelector('[name="tel"]'),
+        ok   = form.querySelector('[name="consent"]'),
+        err  = form.querySelector('.form-err');
 
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    [name, mail, tel].forEach(function(el){ el.classList.remove('bad'); });
-    err.textContent = '';
+    function bad(el, msg){
+      if(el.type !== 'checkbox') el.classList.add('bad');
+      else form.querySelector('.consent').classList.add('bad');
+      err.textContent = msg;
+      el.focus();
+      return false;
+    }
 
-    var n = name.value.trim(), m = mail.value.trim(), t = tel.value.trim();
-    if(n.length < 2) return bad(name, 'צריך למלא שם מלא');
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m)) return bad(mail, 'האימייל לא נראה תקין');
-    if(t.replace(/\D/g,'').length < 9) return bad(tel, 'מספר הטלפון לא נראה תקין');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      [name, mail, tel].forEach(function(el){ el.classList.remove('bad'); });
+      form.querySelector('.consent').classList.remove('bad');
+      err.textContent = '';
 
-    var msg = 'היי אייל, אני רוצה להירשם לריטריט הוולנס ב-21.8\n\n'
-            + 'שם מלא: ' + n + '\n'
-            + 'אימייל: ' + m + '\n'
-            + 'טלפון: ' + t;
-    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      var n = name.value.trim(), m = mail.value.trim(), t = tel.value.trim();
+      if(n.length < 2) return bad(name, 'צריך למלא שם מלא');
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m)) return bad(mail, 'האימייל לא נראה תקין');
+      if(t.replace(/\D/g,'').length < 9) return bad(tel, 'מספר הטלפון לא נראה תקין');
+      if(!ok.checked) return bad(ok, 'צריך לאשר קבלת הודעות כדי להמשיך');
+
+      var msg = 'היי אייל, אני רוצה להירשם לריטריט הוולנס ב-21.8\n\n'
+              + 'שם מלא: ' + n + '\n'
+              + 'אימייל: ' + m + '\n'
+              + 'טלפון: ' + t + '\n'
+              + 'מאשר/ת קבלת הודעות: כן';
+      window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
   });
 })();
 </script>
