@@ -66,7 +66,9 @@ a{color:var(--gold)}
 .logo{font-weight:700; font-size:20px; color:#fff; letter-spacing:.3px}
 .logo span{color:var(--gold)}
 .logo-img{height:52px; width:auto; display:block}
-.bar-meta{font-size:14px; color:var(--txt2); text-align:left}
+.bar-meta{font-size:14px; color:#fff; display:inline-block; text-align:justify}
+.bar-meta span{display:block; text-align:justify; text-align-last:justify; line-height:1.7}
+.bar-meta span:last-child{text-align-last:auto}
 
 .hero{padding:52px 0 8px}
 .hero-grid{display:grid; grid-template-columns:1.12fr .88fr; gap:20px; align-items:start; max-width:var(--max); margin:0 auto; padding:0 20px; position:relative; z-index:1}
@@ -282,7 +284,7 @@ summary::after{transition:transform .3s ease}
 <div class="bar">
   <div class="wrap">
     <img class="logo-img" src="assets/logo.png" alt="LeviLife">
-    <div class="bar-meta">יום שישי · 21.8.26 · 08:30-13:30<br>LAKE TLV, פארק מנחם בגין, תל אביב</div>
+    <div class="bar-meta"><span>יום שישי · 21.8.26 · 08:30-13:30</span><span>LAKE TLV, פארק מנחם בגין, תל אביב</span></div>
   </div>
 </div>
 
