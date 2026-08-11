@@ -174,6 +174,24 @@ section{padding:84px 0}
 .bio img{border-radius:20px; background:linear-gradient(180deg,rgba(15,138,114,.22),rgba(61,219,196,.1))}
 .bio p{color:#d0f0e6; margin:0 0 12px}
 .slog{color:var(--gold); font-weight:700}
+.signup-form{max-width:420px; margin:22px auto 0; display:grid; gap:14px; text-align:right}
+.fld{display:grid; gap:6px}
+.fld span{font-size:15px; font-weight:700; color:#fff}
+.fld input{
+  width:100%; font:inherit; font-size:16px; color:#fff; background:rgba(255,255,255,.06);
+  border:1px solid var(--line); border-radius:12px; padding:13px 15px; outline:none;
+  transition:border-color .2s ease, background .2s ease;
+}
+.fld input::placeholder{color:rgba(255,255,255,.35)}
+.fld input:focus{border-color:var(--gold); background:rgba(255,255,255,.09)}
+.fld input.bad{border-color:#ff8a80; background:rgba(255,138,128,.08)}
+.signup-form .cta{width:100%; margin-top:4px; cursor:pointer}
+.form-err{min-height:20px; margin:0; font-size:14px; color:#ff8a80; text-align:center}
+.cta-plain{
+  margin-top:16px; background:none; border:1px solid var(--line); color:var(--txt2);
+  box-shadow:none; font-size:15px; padding:12px 22px;
+}
+.cta-plain:hover{border-color:var(--gold); color:#fff}
 details{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:0 18px; margin-bottom:10px}
 summary{cursor:pointer; padding:16px 0; font-weight:700; font-size:17px; color:#fff; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px}
 summary::-webkit-details-marker{display:none}
@@ -438,10 +456,31 @@ summary::after{transition:transform .3s ease}
     <div class="final">
       <h2>מוכנים לבוקר שישנה לכם את השבוע? 💛</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
-      <div class="price-tag">396 ₪ להרשמה</div><br>
-      <a class="cta" href="https://wa.me/972533815167?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D7%A8%D7%99%D7%98%D7%A8%D7%99%D7%98%20%D7%94%D7%95%D7%95%D7%9C%D7%A0%D7%A1%2021.8">
+      <div class="price-tag">396 ₪ להרשמה</div>
+
+      <form class="signup-form" id="signup-form" novalidate>
+        <label class="fld">
+          <span>שם מלא</span>
+          <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="ישראל ישראלי">
+        </label>
+        <label class="fld">
+          <span>אימייל</span>
+          <input type="email" id="f-mail" name="email" autocomplete="email" required placeholder="name@example.com" dir="ltr">
+        </label>
+        <label class="fld">
+          <span>טלפון</span>
+          <input type="tel" id="f-tel" name="tel" autocomplete="tel" required placeholder="050-0000000" dir="ltr" inputmode="tel">
+        </label>
+        <p class="form-err" id="form-err" role="alert"></p>
+        <button class="cta" type="submit">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.297.347-.495.115-.198.058-.371-.024-.52-.082-.148-.669-1.612-.916-2.207-.241-.579-.486-.487-.668-.497-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347"/></svg>
+          שליחת ההרשמה 😊 <span class="chev">›</span>
+        </button>
+      </form>
+
+      <a class="cta cta-plain" href="https://wa.me/972533815167?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D7%A8%D7%99%D7%98%D7%A8%D7%99%D7%98%20%D7%94%D7%95%D7%95%D7%9C%D7%A0%D7%A1%2021.8" target="_blank" rel="noopener">
         <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.297.347-.495.115-.198.058-.371-.024-.52-.082-.148-.669-1.612-.916-2.207-.241-.579-.486-.487-.668-.497-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347"/></svg>
-        להרשמה בוואטסאפ 😊 <span class="chev">›</span>
+        פתיחת וואטסאפ בלי למלא טופס <span class="chev">›</span>
       </a>
       <p class="cta-note">לאחר ההרשמה תישלח אליכם קבוצת הוואטסאפ של האירוע וקישור לתשלום</p>
     </div>
@@ -482,6 +521,35 @@ summary::after{transition:transform .3s ease}
     });
   }, {threshold:.15});
   els.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var form = document.getElementById('signup-form');
+  if(!form) return;
+  var name = document.getElementById('f-name'),
+      mail = document.getElementById('f-mail'),
+      tel  = document.getElementById('f-tel'),
+      err  = document.getElementById('form-err');
+  var PHONE = '972533815167';
+
+  function bad(el, msg){ el.classList.add('bad'); err.textContent = msg; el.focus(); return false; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    [name, mail, tel].forEach(function(el){ el.classList.remove('bad'); });
+    err.textContent = '';
+
+    var n = name.value.trim(), m = mail.value.trim(), t = tel.value.trim();
+    if(n.length < 2) return bad(name, 'צריך למלא שם מלא');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m)) return bad(mail, 'האימייל לא נראה תקין');
+    if(t.replace(/\D/g,'').length < 9) return bad(tel, 'מספר הטלפון לא נראה תקין');
+
+    var msg = 'היי אייל, אני רוצה להירשם לריטריט הוולנס ב-21.8\n\n'
+            + 'שם מלא: ' + n + '\n'
+            + 'אימייל: ' + m + '\n'
+            + 'טלפון: ' + t;
+    window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
 })();
 </script>
 </body>
