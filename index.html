@@ -116,7 +116,10 @@ h1{
   content:""; position:absolute; inset:6% 4% 0; border-radius:24px;
   background:radial-gradient(circle at 50% 55%, rgba(61,219,196,.28), rgba(15,138,114,.16) 45%, transparent 68%);
 }
-.hero-img img{position:relative; margin:0 auto; width:100%; max-width:420px; border-radius:20px; border:1px solid rgba(61,219,196,.28); box-shadow:0 18px 60px rgba(0,0,0,.55)}
+.hero-img img{
+  position:relative; margin:0 auto; width:100%; max-width:460px;
+  object-fit:contain; filter:drop-shadow(0 18px 30px rgba(0,0,0,.48));
+}
 .hero-placeholder{
   position:relative; margin:0 auto; width:100%; max-width:420px; aspect-ratio:4/5; border-radius:20px;
   border:1px solid rgba(61,219,196,.28); box-shadow:0 18px 60px rgba(0,0,0,.55);
@@ -318,7 +321,9 @@ summary::after{transition:transform .3s ease}
       </ul>
     </div>
 
-    <div class="hero-img rv"><div class="hero-placeholder">🌊<br><span>תמונה תתעדכן בקרוב</span></div></div>
+    <div class="hero-img rv">
+      <img src="assets/retreat-ice-bath-group.png" alt="אייל ותלמידים בריטריט וולנס סביב אמבטיית קרח על שפת האגם">
+    </div>
   </div>
 </header>
 
