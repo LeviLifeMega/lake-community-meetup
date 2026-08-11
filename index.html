@@ -180,6 +180,11 @@ section{padding:84px 0}
 .bio p{color:#d0f0e6; margin:0 0 12px}
 .slog{color:var(--gold); font-weight:700}
 .signup-form{max-width:420px; margin:22px auto 0; display:grid; gap:14px; text-align:right}
+.signup-form.panel{
+  border:1px solid rgba(61,219,196,.3); border-radius:24px; padding:32px 24px; max-width:460px;
+  background:radial-gradient(600px 300px at 50% 0%, rgba(15,138,114,.26), transparent 70%), rgba(255,255,255,.03);
+}
+.ltr{unicode-bidi:isolate; direction:ltr}
 .fld{display:grid; gap:6px}
 .fld span{font-size:18px; font-weight:700; color:#fff}
 .fld input{
@@ -226,7 +231,8 @@ footer .logo{display:inline-block; margin-bottom:16px; font-size:22px}
 footer p{margin:6px 0; font-size:15px; color:var(--txt2)}
 footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 .wa{display:inline-flex; align-items:center; gap:9px; text-decoration:none}
-.phone{color:var(--gold); font-size:17px; font-weight:700; letter-spacing:.3px; unicode-bidi:isolate; line-height:1}
+.phone{color:#fff; font-size:17px; font-weight:700; letter-spacing:.3px; unicode-bidi:isolate; line-height:1}
+.wa-emoji{font-size:22px; line-height:1; flex:none}
 .wa-badge{width:26px; height:26px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; flex:none}
 .wa-badge svg{width:16px; height:16px; fill:#fff}
 .wa:hover .phone{color:#a8ffe9}
@@ -320,7 +326,7 @@ summary::after{transition:transform .3s ease}
         </svg>
         בוקר של פעם בחיים - מוגבל במקומות
       </span>
-      <h1>ריטריט וולנס על שפת האגם</h1>
+      <h1>ריטריט וולנס על שפת<br>האגם - <span class="ltr">Lake TLV</span></h1>
       <p class="lead">צלילים מרפאים, יוגה מול המים, נשימות עמוקות וטבילה בקרח 🦋 - בוקר שכולו תוכנן כדי להטעין אתכם באנרגיות ✨, לפתוח את הלב ❤️ ולדחוף אתכם קדימה. הגיעו פתוחים, סקרנים ומוכנים 😊</p>
       <ul class="facts">
         <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><b>יום שישי, 21.8.26</b></li>
@@ -342,7 +348,7 @@ summary::after{transition:transform .3s ease}
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
     </div>
-    <form class="signup-form" novalidate>
+    <form class="signup-form panel" novalidate>
       <label class="fld">
         <span>שם מלא</span>
         <input type="text" name="name" autocomplete="name" required placeholder="ישראל ישראלי">
@@ -489,8 +495,6 @@ summary::after{transition:transform .3s ease}
     <div class="final">
       <h2>מוכנים לבוקר שישנה לכם את השבוע? 💛</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
-      <div class="price-tag">396 ₪ להרשמה</div>
-
       <form class="signup-form" id="signup-form" novalidate>
         <label class="fld">
           <span>שם מלא</span>
@@ -530,7 +534,7 @@ summary::after{transition:transform .3s ease}
     <p>ריטריט וולנס - 21.8.26 - LAKE TLV, פארק מנחם בגין, תל אביב</p>
     <p class="ask">שאלות? דברו איתנו</p>
     <a class="wa" href="https://wa.me/972533815167">
-      <span class="wa-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.347.52-.52.174-.174.232-.297.347-.495.115-.198.058-.371-.024-.52-.082-.148-.669-1.612-.916-2.207-.241-.579-.486-.487-.668-.497-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347"/></svg></span>
+      <span class="wa-emoji" aria-hidden="true">💬</span>
       <span class="phone">053-381-5167</span>
     </a>
   </div>
