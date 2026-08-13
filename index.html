@@ -817,6 +817,8 @@ footer .ask{margin:14px 0 8px}
 (function(){
   var PHONE = '972533815167';
   var forms = document.querySelectorAll('.signup-form');
+  var LEADME_ENDPOINT = 'https://api.leadmecms.co.il/lps/newLeadElementor/';
+  var LEADME_PAGE_TOKEN = 'eb02627bd83c22588a5d1fd1b1bcede2f417fe4bb53062c2721954992eec4230';
 
   Array.prototype.forEach.call(forms, function(form){
     var name = form.querySelector('[name="name"]'),
@@ -835,7 +837,7 @@ footer .ask{margin:14px 0 8px}
       return false;
     }
 
-    form.addEventListener('submit', function(e){
+    form.addEventListener('submit', async function(e){
       e.preventDefault();
       [name, mail, tel].forEach(function(el){ el.classList.remove('bad'); });
       form.querySelector('.consent').classList.remove('bad');
@@ -846,6 +848,23 @@ footer .ask{margin:14px 0 8px}
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m)) return bad(mail, 'האימייל לא נראה תקין');
       if(t.replace(/\D/g,'').length < 9) return bad(tel, 'מספר הטלפון לא נראה תקין');
       if(!ok.checked) return bad(ok, 'צריך לאשר קבלת הודעות כדי להמשיך');
+
+      var leadmeBody = new URLSearchParams();
+      leadmeBody.set('fields[name]', n);
+      leadmeBody.set('fields[email]', m);
+      leadmeBody.set('fields[phone]', t);
+      leadmeBody.set('campaign', LEADME_PAGE_TOKEN);
+      leadmeBody.set('referrer', window.location.href);
+      try{
+        await fetch(LEADME_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: leadmeBody.toString()
+        });
+      }catch(fetchError){
+        return bad(mail, 'לא הצלחנו לשמור את ההרשמה. אפשר לנסות שוב בעוד רגע');
+      }
 
       var paymentUrl = new URL('https://secure.cardcom.solutions/EA/EA5/URSmlDPJWkGcXMMcpGK8g/PaymentSP');
       paymentUrl.search = new URLSearchParams({
