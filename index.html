@@ -316,7 +316,12 @@ section{padding:84px 0}
 .fld input.bad{border-color:#c0392b; background:#fbe4e1}
 .signup-form .cta{width:100%; margin-top:4px; cursor:pointer; padding-top:13px; padding-bottom:13px}
 .btn-emoji{font-size:30px; line-height:1; flex:none}
-.form-err{min-height:20px; margin:0; font-size:14px; color:#ff8a80; text-align:center}
+.form-err{min-height:0; margin:0; font-size:14px; color:#ff8a80; text-align:center}
+.form-err.shown{
+  min-height:auto; font-size:15.5px; font-weight:700; color:#fff;
+  background:rgba(255,107,107,.16); border:1px solid rgba(255,107,107,.55);
+  border-radius:12px; padding:11px 14px;
+}
 .consent{
   display:flex; align-items:center; gap:10px; cursor:pointer;
   font-size:14.5px; line-height:1.5; color:#fff; text-align:right;
@@ -471,7 +476,7 @@ summary::after{transition:transform .3s ease}
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
     </div>
     <div class="final">
-      <h2>הרגע שבו אתם בוחרים בעצמכם</h2>
+      <h2>הרגע הזה של לבחור בעצמך 💛</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא.</p>
       <div class="price-box">
         <span class="price-chip">מחיר מסובסד לקהילה שלי</span>
@@ -802,7 +807,9 @@ summary::after{transition:transform .3s ease}
       if(el.type !== 'checkbox') el.classList.add('bad');
       else form.querySelector('.consent').classList.add('bad');
       err.textContent = msg;
-      el.focus();
+      err.classList.add('shown');
+      try{ el.scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){}
+      el.focus({preventScroll:true});
       return false;
     }
 
