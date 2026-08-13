@@ -225,6 +225,21 @@ section{padding:84px 0}
 .bio p{color:#d0f0e6; margin:0 0 12px}
 .slog{color:var(--gold); font-weight:700}
 .signup-form{max-width:470px; margin:22px auto 0; display:grid; gap:14px; text-align:right}
+.price-box{
+  max-width:470px; margin:26px auto 0; padding:18px 20px 20px; text-align:center;
+  border:1px solid rgba(61,219,196,.35); border-radius:18px;
+  background:linear-gradient(180deg, rgba(61,219,196,.12), rgba(61,219,196,.03));
+}
+.price-chip{
+  display:inline-block; font-size:13.5px; font-weight:700; letter-spacing:.3px;
+  color:#062824; background:var(--gold); border-radius:999px; padding:4px 14px;
+}
+.price-num{
+  margin:12px 0 6px; font-size:clamp(38px,5vw,54px); font-weight:700; line-height:1; color:#fff;
+  text-shadow:0 0 22px rgba(61,219,196,.35);
+}
+.price-num small{font-size:.45em; font-weight:400; color:var(--gold); margin-inline-start:6px}
+.price-sub{margin:0; font-size:15.5px; color:#cfeee6; line-height:1.6}
 .hosts{list-style:none; margin:0 0 18px; padding:0; display:grid; gap:10px}
 .hosts li{
   display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px;
@@ -425,6 +440,11 @@ summary::after{transition:transform .3s ease}
     <div class="final">
       <h2>תרשום אותי תכף ומיד אבל!</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
+      <div class="price-box">
+        <span class="price-chip">מחיר מסובסד לקהילה שלי</span>
+        <p class="price-num">320<small>₪</small></p>
+        <p class="price-sub">ארבע סדנאות, חמש שעות, מנחים מקצועיים - הכל על שפת האגם.<br>זה המחיר שלכם. לא של אף אחד אחר.</p>
+      </div>
       <form class="signup-form" novalidate>
         <label class="fld">
           <span>שם מלא:</span>
@@ -612,6 +632,11 @@ summary::after{transition:transform .3s ease}
     <div class="final">
       <h2>מוכנים לבוקר שישנה לכם את השבוע? 💛</h2>
       <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
+      <div class="price-box">
+        <span class="price-chip">מחיר מסובסד לקהילה שלי</span>
+        <p class="price-num">320<small>₪</small></p>
+        <p class="price-sub">ארבע סדנאות, חמש שעות, מנחים מקצועיים - הכל על שפת האגם.<br>זה המחיר שלכם. לא של אף אחד אחר.</p>
+      </div>
       <form class="signup-form" id="signup-form" novalidate>
         <label class="fld">
           <span>שם מלא:</span>
