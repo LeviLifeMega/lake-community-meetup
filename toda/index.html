@@ -157,6 +157,8 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 .wa-badge svg{width:16px; height:16px; fill:#fff}
 .joined-shot{display:block; width:100%; max-width:520px; height:auto; margin:18px auto 22px}
 
+h1{background:linear-gradient(180deg,#fff6df 0%,#f2c260 55%,#c98f2a 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
+.final{border:0; background:none; padding:0 0 8px}
 </style>
 
 <div class="sky">
@@ -168,8 +170,8 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 
 <main class="wrap">
   <div class="final">
-    <h1>איזה כיף שנרשמת! 🧊🙌</h1>
     <img class="joined-shot" src="../assets/retreat-ice-bath.webp" alt="אייל ומשתתפים סביב אמבטיית הקרח בריטריט על שפת האגם" loading="lazy">
+    <h1>איזה כיף שנרשמת! 🧊🙌</h1>
     <p class="lead">ההרשמה שלך לריטריט הוולנס התקבלה.</p>
     <a class="cta" href="https://sprw.io/stt-bOR4Y" target="_blank" rel="noopener">
       <span class="cal-emoji" aria-hidden="true">📋</span>
@@ -181,64 +183,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
     </a>
   </div>
 
-  <div class="formsec">
-    <h2>הצהרת בריאות - חובה למילוי לפני ההגעה</h2>
-    <p class="sub">אנא מלאו את הטופס בכנות. הפרטים נשלחים ישירות לצוות LeviLife ונשמרים בסודיות.</p>
-
-    <form id="healthForm">
-      <div class="section-title">פרטים אישיים</div>
-      <div class="frow"><label>שם מלא *</label><input type="text" name="full_name" required></div>
-      <div class="frow"><label>תעודת זהות *</label><input type="text" name="id_number" required pattern="[0-9]{5,9}"></div>
-      <div class="frow"><label>טלפון *</label><input type="tel" name="phone" required></div>
-      <div class="frow"><label>תאריך לידה *</label><input type="date" name="birth_date" required></div>
-
-      <div class="section-title">הצהרת בריאות כללית</div>
-      <div class="yn-item"><span>אני סובל/ת ממחלת לב, כלי דם, או יתר לחץ דם</span>
-        <div class="yn-radio"><label><input type="radio" name="q_heart" value="כן" required> כן</label><label><input type="radio" name="q_heart" value="לא"> לא</label></div></div>
-      <div class="yn-item"><span>אני סובל/ת מבעיות נשימה (אסתמה וכד')</span>
-        <div class="yn-radio"><label><input type="radio" name="q_breath" value="כן" required> כן</label><label><input type="radio" name="q_breath" value="לא"> לא</label></div></div>
-      <div class="yn-item"><span>אני סובל/ת מסוכרת</span>
-        <div class="yn-radio"><label><input type="radio" name="q_diabetes" value="כן" required> כן</label><label><input type="radio" name="q_diabetes" value="לא"> לא</label></div></div>
-      <div class="yn-item"><span>יש לי היסטוריה של אפילפסיה או התקפים</span>
-        <div class="yn-radio"><label><input type="radio" name="q_epilepsy" value="כן" required> כן</label><label><input type="radio" name="q_epilepsy" value="לא"> לא</label></div></div>
-      <div class="yn-item"><span>עברתי ניתוח ב-6 החודשים האחרונים</span>
-        <div class="yn-radio"><label><input type="radio" name="q_surgery" value="כן" required> כן</label><label><input type="radio" name="q_surgery" value="לא"> לא</label></div></div>
-      <div class="yn-item"><span>אני בהריון</span>
-        <div class="yn-radio"><label><input type="radio" name="q_pregnant" value="כן" required> כן</label><label><input type="radio" name="q_pregnant" value="לא"> לא</label></div></div>
-      <div class="yn-item"><span>אני מטופל/ת נפשית בהשגחה רפואית (חרדה/פאניקה משמעותית וכד')</span>
-        <div class="yn-radio"><label><input type="radio" name="q_mental" value="כן" required> כן</label><label><input type="radio" name="q_mental" value="לא"> לא</label></div></div>
-
-      <div class="frow"><label>מגבלות רפואיות נוספות / תרופות קבועות (אם יש)</label><textarea name="other_notes" placeholder="פרטו כאן, או השאירו ריק אם אין"></textarea></div>
-
-      <div class="section-title">הצהרה ייעודית לטבילה במי קרח</div>
-      <div class="legal">
-        טבילה במים קרים גורמת לתגובת "הלם קור" (cold shock) - עלייה זמנית בדופק ובלחץ הדם. הטבילה אינה מומלצת למי שסובל ממחלת לב לא מאובחנת, יתר לחץ דם לא מאוזן, או כל מצב רפואי חריף. במידה ואינך בטוח/ה במצבך הבריאותי - יש להתייעץ עם רופא/ה לפני ההגעה.
-      </div>
-
-      <div class="section-title">הצהרה משפטית</div>
-      <div class="legal">
-        הנני מצהיר/ה כי כל הפרטים שמסרתי לעיל נכונים ומדויקים, וכי אני משתתפ/ת בריטריט ובכל הפעילויות (לרבות יוגה, נשימות וטבילה במי קרח) מרצוני החופשי ועל אחריותי הבלעדית. ידוע לי כי ייתכן סיכון פיזי בפעילויות אלו, ואני פוטר/ת בזאת את LeviLife, את אייל אברהם לוי ואת צוות המארגנים מכל אחריות לכל נזק, פגיעה או אירוע רפואי שעלול להתרחש במהלך ההשתתפות, ככל שלא נבע מרשלנות מכוונת מצדם.
-      </div>
-
-      <div class="checkrow">
-        <input type="checkbox" id="agree" required>
-        <label for="agree">קראתי, הבנתי ואני מאשר/ת את ההצהרה לעיל בחתימתי הדיגיטלית</label>
-      </div>
-
-      <div class="frow">
-        <label>חתימה דיגיטלית *</label>
-        <div class="sig-wrap"><canvas id="sigpad"></canvas></div>
-        <div class="sig-actions">
-          <button type="button" id="clearSig">נקה חתימה</button>
-          <span id="sigStatus" style="font-size:13px;color:var(--txt2)">חתמו כאן עם העכבר / האצבע</span>
-        </div>
-      </div>
-
-      <button type="submit" class="submit-btn" id="submitBtn">שליחת הצהרת הבריאות</button>
-      <div class="form-status" id="formStatus"></div>
-    </form>
-  </div>
-</main>
+  </main>
 
 <footer>
   <div class="wrap">
@@ -272,100 +217,7 @@ footer .ask{font-size:17px; color:var(--txt2); margin:26px 0 12px}
 })();
 
 // Signature pad
-(function(){
-  var canvas = document.getElementById('sigpad');
-  var ctx = canvas.getContext('2d');
-  var drawing = false;
-  var hasSignature = false;
 
-  function resize(){
-    var ratio = Math.max(window.devicePixelRatio || 1, 1);
-    var rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * ratio;
-    canvas.height = rect.height * ratio;
-    ctx.scale(ratio, ratio);
-    ctx.strokeStyle = '#06282a';
-    ctx.lineWidth = 2.2;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function pos(e){
-    var rect = canvas.getBoundingClientRect();
-    var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-    var y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-    return {x:x, y:y};
-  }
-  function start(e){ drawing = true; hasSignature = true; var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); e.preventDefault(); document.getElementById('sigStatus').textContent=''; }
-  function move(e){ if(!drawing) return; var p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); e.preventDefault(); }
-  function end(){ drawing = false; }
-
-  canvas.addEventListener('mousedown', start);
-  canvas.addEventListener('mousemove', move);
-  window.addEventListener('mouseup', end);
-  canvas.addEventListener('touchstart', start, {passive:false});
-  canvas.addEventListener('touchmove', move, {passive:false});
-  canvas.addEventListener('touchend', end);
-
-  document.getElementById('clearSig').addEventListener('click', function(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    hasSignature = false;
-    document.getElementById('sigStatus').textContent = 'חתמו כאן עם העכבר / האצבע';
-  });
-
-  window.__getSignatureDataUrl = function(){
-    return hasSignature ? canvas.toDataURL('image/png') : null;
-  };
-  window.__hasSignature = function(){ return hasSignature; };
-})();
-
-// Form submit -> Formspree (static-site email delivery, no backend needed)
-(function(){
-  var form = document.getElementById('healthForm');
-  var status = document.getElementById('formStatus');
-  var btn = document.getElementById('submitBtn');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!window.__hasSignature()){
-      status.textContent = 'נא לחתום לפני השליחה';
-      status.className = 'form-status err';
-      return;
-    }
-    btn.disabled = true;
-    status.textContent = 'שולח...';
-    status.className = 'form-status';
-
-    var fd = new FormData(form);
-    var fullName = fd.get('full_name') || 'לא ידוע';
-    fd.append('_subject', fullName + ' - הצהרת בריאות רטריט לוילייף 21.8.26');
-    fd.append('signature_image', window.__getSignatureDataUrl());
-    fd.append('_replyto', 'office@levilife.com');
-
-    // TODO(Eyal): replace with real Formspree endpoint - see setup instructions sent separately
-    fetch('https://formspree.io/f/YOUR_FORM_ID', {
-      method: 'POST',
-      body: fd,
-      headers: { 'Accept': 'application/json' }
-    }).then(function(res){
-      if(res.ok){
-        status.textContent = 'הטופס נשלח בהצלחה! תודה 🙏';
-        status.className = 'form-status ok';
-        form.reset();
-        document.getElementById('clearSig').click();
-      } else {
-        throw new Error('send failed');
-      }
-    }).catch(function(){
-      status.textContent = 'שגיאה בשליחה - נסו שוב או שלחו לנו הודעה בווצאפ';
-      status.className = 'form-status err';
-    }).finally(function(){
-      btn.disabled = false;
-    });
-  });
-})();
 </script>
 </body>
 </html>
