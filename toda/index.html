@@ -184,6 +184,18 @@ main{padding-top:16px}
 }
 .final .cta-note{margin:18px 0 0; font-size:14px; color:var(--txt2)}
 @media (prefers-reduced-motion:reduce){.circle-draw path{animation:none; stroke-dashoffset:0}}
+.arrows{display:flex; flex-direction:row; justify-content:center; align-items:flex-end; gap:34px; margin:26px 0 30px}
+.arrows svg{width:64px; height:30px; fill:none; stroke:#fff; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; margin-bottom:0; opacity:.85; animation:nudge 1.8s ease-in-out infinite}
+.a-right{transform:rotate(36deg); animation-delay:.15s}
+.a-left{transform:rotate(-36deg); animation-delay:.3s}
+.a-mid{margin-bottom:-6px}
+@keyframes nudge{0%,100%{opacity:.5} 50%{opacity:1}}
+.circled{margin-top:6px}
+.circle-draw{inset:-24px -40px}
+.circle-draw path{stroke-width:5}
+.final .cta-note{margin:30px 0 0; font-size:14.5px}
+.cal{margin-top:38px}
+@media (prefers-reduced-motion:reduce){.arrows svg{animation:none; opacity:.8}}
 </style>
 
 <div class="sky">
@@ -199,9 +211,9 @@ main{padding-top:16px}
     <h1>איזה כיף שנרשמת! 🧊🙌</h1>
     <p class="lead">ההרשמה שלך לריטריט הוולנס התקבלה.</p>
     <div class="arrows" aria-hidden="true">
-      <svg viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
-      <svg viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
-      <svg viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
+      <svg class="a-side a-right" viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
+      <svg class="a-mid" viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
+      <svg class="a-side a-left" viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
     </div>
     <span class="circled">
       <a class="cta" href="https://sprw.io/stt-bOR4Y" target="_blank" rel="noopener">
@@ -212,7 +224,7 @@ main{padding-top:16px}
         <path d="M24,54 C22,26 80,11 152,10 C230,9 286,25 287,51 C288,79 226,93 148,92 C72,91 18,79 21,53 C24,31 62,17 124,12"/>
       </svg>
     </span>
-    <p class="cta-note">* לאחר מילוי הצהרת הבריאות תפתח לך גישה לקבוצת העידכונים בווצאפ.</p>
+    <p class="cta-note">* לאחר מילוי הצהרת הבריאות תועבר לקבוצת הווצאפ לעידכונים.</p>
     <a class="cal" id="cal" href="https://calendar.google.com/calendar/r">
       <span class="cal-emoji" aria-hidden="true">📅</span>
       הוספת המפגש ליומן
