@@ -113,6 +113,19 @@ h1{
   font-size:21px; padding:18px 42px; border-radius:16px; border:0;
   box-shadow:0 10px 34px rgba(232,169,58,.35); transition:transform .15s ease, box-shadow .15s ease;
 }
+.cta{position:relative; isolation:isolate; overflow:hidden}
+.cta::before{
+  content:""; position:absolute; left:50%; top:50%; width:260%; aspect-ratio:1;
+  translate:-50% -50%; z-index:-2; pointer-events:none;
+  background:conic-gradient(transparent 0deg 292deg, rgba(255,255,255,.5) 320deg, #fff 340deg, rgba(255,255,255,.5) 356deg, transparent 360deg);
+  animation:btnring 3.4s linear infinite;
+}
+.cta::after{
+  content:""; position:absolute; inset:2px; border-radius:14px; z-index:-1; pointer-events:none;
+  background:linear-gradient(180deg,#ffe9ae,#e8a93a);
+}
+@keyframes btnring{to{rotate:1turn}}
+@media (prefers-reduced-motion:reduce){.cta::before{animation:none; opacity:.35}}
 .chev{unicode-bidi:isolate; font-weight:700; letter-spacing:1px; opacity:.75}
 .star{width:23px; height:23px; flex:none; filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
 .cta:hover{transform:translateY(-2px); box-shadow:0 14px 40px rgba(232,169,58,.48)}
