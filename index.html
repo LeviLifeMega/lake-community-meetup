@@ -242,12 +242,14 @@ section{padding:84px 0}
 .price-sub{margin:0; font-size:15.5px; color:#cfeee6; line-height:1.6}
 .hosts{list-style:none; margin:0 0 18px; padding:0; display:grid; gap:10px}
 .hosts li{
-  display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px;
+  display:flex; align-items:center; gap:14px;
   background:rgba(255,255,255,.04); border:1px solid var(--line);
-  border-radius:12px; padding:10px 14px;
+  border-radius:14px; padding:10px 12px;
 }
-.hosts b{color:var(--gold); font-size:16px; font-weight:700}
-.hosts span{color:#fff; font-size:17px}
+.hosts img{width:64px; height:64px; flex:none; border-radius:12px; object-fit:cover}
+.hosts li div{display:grid; gap:2px}
+.hosts b{color:var(--gold); font-size:15px; font-weight:700}
+.hosts span{color:#fff; font-size:18px}
 .signup-form.panel{
   border:1px solid rgba(61,219,196,.3); border-radius:24px; padding:32px 24px; max-width:460px;
   background:radial-gradient(600px 300px at 50% 0%, rgba(15,138,114,.26), transparent 70%), rgba(255,255,255,.03);
@@ -595,9 +597,18 @@ summary::after{transition:transform .3s ease}
       <h2 class="sec-t gold">מי איתכם בבוקר הזה 🙏</h2>
       <p>את הפעילויות מובילים מנחים מקצועיים, כל אחד מומחה בתחום שלו:</p>
       <ul class="hosts">
-        <li><b>סאונד הילינג</b><span>משה חסון ומעיין דויד</span></li>
-        <li><b>פילאטיס</b><span>אוריאל צארום</span></li>
-        <li><b>נשימות וטבילה בקרח</b><span>שירלי כהן ספן</span></li>
+        <li>
+          <img src="assets/activity-sound-healing.jpg" alt="סדנת סאונד הילינג" loading="lazy">
+          <div><b>סאונד הילינג</b><span>משה חסון ומעיין דויד</span></div>
+        </li>
+        <li>
+          <img src="assets/activity-vinyasa-yoga.jpg" alt="סדנת פילאטיס" loading="lazy">
+          <div><b>פילאטיס</b><span>אוריאל צארום</span></div>
+        </li>
+        <li>
+          <img src="assets/activity-cold-immersion.jpg" alt="סדנת נשימות וטבילה בקרח" loading="lazy">
+          <div><b>נשימות וטבילה בקרח</b><span>שירלי כהן ספן</span></div>
+        </li>
       </ul>
       <p><b class="slog">אייל אברהם לוי</b> - מייסד LeviLife, מלווה תהליכי הגשמה עצמית וצמיחה אישית כבר 15 שנה. אייל נמצא איתכם לאורך כל הבוקר ועובר את החוויה יחד אתכם.</p>
     </div>
