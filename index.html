@@ -84,7 +84,20 @@ h1{
 }
 .lead{font-size:clamp(19px,2.7vw,23px); color:#fff; margin:0 0 32px; line-height:1.95}
 .lead,.card p,.who li,.warn,.time span,.bio p{font-family:var(--hand); font-weight:400; letter-spacing:.6px; line-height:1.8}
-.lead{-webkit-text-stroke:.35px #071a18; paint-order:stroke fill}
+.lead,.card p,.who li,.time span,.bio p{-webkit-text-stroke:.35px #071a18; paint-order:stroke fill}
+.particles-host{position:relative; isolation:isolate}
+.particles{position:absolute; inset:0; z-index:-1; overflow:hidden; pointer-events:none}
+.particles i{
+  position:absolute; display:block; border-radius:50%; background:#8ff5e2;
+  box-shadow:0 0 8px rgba(143,245,226,.8); animation:floatp linear infinite;
+}
+@keyframes floatp{
+  0%{transform:translateY(20px); opacity:0}
+  12%{opacity:.75}
+  88%{opacity:.75}
+  100%{transform:translateY(-160px); opacity:0}
+}
+@media (prefers-reduced-motion:reduce){.particles i{animation:none; opacity:.4}}
 .lead{line-height:2}
 .facts{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 16px; padding:0; list-style:none}
 .facts li{
@@ -105,6 +118,7 @@ h1{
 .cta:hover{transform:translateY(-2px); box-shadow:0 14px 40px rgba(232,169,58,.48)}
 .cta:focus-visible{outline:3px solid #fff; outline-offset:3px}
 .cta-note{font-size:14px; color:var(--txt2); margin:34px 0 0}
+.final p.cta-note{margin:34px 0 0}
 .form-title{font-size:clamp(22px,3.6vw,30px); font-weight:700; color:#fff; text-align:center; margin:0 0 20px}
 .star3d{width:1.05em; height:1.05em; vertical-align:-.14em; margin-inline-start:.28em; filter:drop-shadow(0 2px 4px rgba(0,0,0,.55))}
 .wa-float{
@@ -190,7 +204,7 @@ section{padding:84px 0}
 .activity-card p{font-size:18px; line-height:1.55; color:#effcf8; text-shadow:0 2px 12px rgba(0,0,0,.9)}
 .activity-card:hover img{transform:scale(1.045); filter:saturate(1.08) contrast(1.03)}
 .who{list-style:none; margin:0; padding:0; display:grid; gap:12px}
-.who li{display:flex; gap:12px; align-items:flex-start; font-size:18px; color:#fff}
+.who li{display:flex; gap:12px; align-items:flex-start; font-size:clamp(17px,1.55vw,22px); color:#fff; line-height:1.75}
 .who svg{margin-top:5px}
 .warn{
   margin-top:22px; background:rgba(61,219,196,.08); border:1px solid rgba(61,219,196,.3);
@@ -209,7 +223,7 @@ section{padding:84px 0}
 .bio img{border-radius:20px; background:linear-gradient(180deg,rgba(15,138,114,.22),rgba(61,219,196,.1))}
 .bio p{color:#d0f0e6; margin:0 0 12px}
 .slog{color:var(--gold); font-weight:700}
-.signup-form{max-width:420px; margin:22px auto 0; display:grid; gap:14px; text-align:right}
+.signup-form{max-width:470px; margin:22px auto 0; display:grid; gap:14px; text-align:right}
 .signup-form.panel{
   border:1px solid rgba(61,219,196,.3); border-radius:24px; padding:32px 24px; max-width:460px;
   background:radial-gradient(600px 300px at 50% 0%, rgba(15,138,114,.26), transparent 70%), rgba(255,255,255,.03);
@@ -399,36 +413,59 @@ summary::after{transition:transform .3s ease}
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
       <svg viewBox="0 0 30 15"><path d="M2 2l13 11 13-11"/></svg>
     </div>
-    <form class="signup-form panel" novalidate>
-      <p class="form-title">תרשום אותי תכף ומיד אבל!</p>
-      <label class="fld">
-        <span>שם מלא:</span>
-        <input type="text" name="name" autocomplete="name" required placeholder="ישראל ישראלי">
-      </label>
-      <label class="fld">
-        <span>אימייל:</span>
-        <input type="email" name="email" autocomplete="email" required placeholder="name@example.com" dir="ltr">
-      </label>
-      <label class="fld">
-        <span>טלפון:</span>
-        <input type="tel" name="tel" autocomplete="tel" required placeholder="050-0000000" dir="ltr" inputmode="tel">
-      </label>
-      <label class="consent">
-        <input type="checkbox" name="consent" required>
-        <span>אני מאשר/ת קבלת הודעות ומסרים מאייל אברהם לוי</span>
-      </label>
-      <p class="form-err" role="alert"></p>
-      <button class="cta" type="submit">
-        <span class="btn-emoji" aria-hidden="true">🧊</span>
-        אני רוצה להצטרף <span class="chev">›</span>
-      </button>
-    </form>
-    <p class="cta-note">מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
+    <div class="final">
+      <h2>תרשום אותי תכף ומיד אבל!</h2>
+      <p>מספר המקומות מוגבל - ההרשמה נסגרת כשמתמלא</p>
+      <form class="signup-form" novalidate>
+        <label class="fld">
+          <span>שם מלא:</span>
+          <input type="text" name="name" autocomplete="name" required placeholder="ישראל ישראלי">
+        </label>
+        <label class="fld">
+          <span>אימייל:</span>
+          <input type="email" name="email" autocomplete="email" required placeholder="name@example.com" dir="ltr">
+        </label>
+        <label class="fld">
+          <span>טלפון:</span>
+          <input type="tel" name="tel" autocomplete="tel" required placeholder="050-0000000" dir="ltr" inputmode="tel">
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>אני מאשר/ת קבלת הודעות ומסרים מאייל אברהם לוי</span>
+        </label>
+        <p class="form-err" role="alert"></p>
+        <button class="cta" type="submit">
+          <span class="btn-emoji" aria-hidden="true">🧊</span>
+          אני רוצה להצטרף <span class="chev">›</span>
+        </button>
+      </form>
+      <p class="cta-note">* לאחר הרשמה תישלח לך הצהרת בריאות ותצטרפו לקבוצת הווצאפ לעידכונים.</p>
+    </div>
   </div>
 </div>
 
 
-<section>
+<section class="particles-host">
+  <div class="particles" aria-hidden="true">
+    <i style="left:6%;top:82%;width:3px;height:3px;animation-duration:15s;animation-delay:0s"></i>
+    <i style="left:14%;top:64%;width:2px;height:2px;animation-duration:19s;animation-delay:-3s"></i>
+    <i style="left:21%;top:91%;width:4px;height:4px;animation-duration:13s;animation-delay:-7s"></i>
+    <i style="left:29%;top:73%;width:2px;height:2px;animation-duration:21s;animation-delay:-11s"></i>
+    <i style="left:35%;top:88%;width:3px;height:3px;animation-duration:16s;animation-delay:-2s"></i>
+    <i style="left:43%;top:59%;width:2px;height:2px;animation-duration:23s;animation-delay:-14s"></i>
+    <i style="left:49%;top:95%;width:3px;height:3px;animation-duration:14s;animation-delay:-5s"></i>
+    <i style="left:56%;top:70%;width:4px;height:4px;animation-duration:18s;animation-delay:-9s"></i>
+    <i style="left:62%;top:86%;width:2px;height:2px;animation-duration:20s;animation-delay:-1s"></i>
+    <i style="left:69%;top:62%;width:3px;height:3px;animation-duration:17s;animation-delay:-13s"></i>
+    <i style="left:76%;top:93%;width:2px;height:2px;animation-duration:22s;animation-delay:-6s"></i>
+    <i style="left:83%;top:76%;width:3px;height:3px;animation-duration:15s;animation-delay:-16s"></i>
+    <i style="left:89%;top:66%;width:2px;height:2px;animation-duration:19s;animation-delay:-4s"></i>
+    <i style="left:94%;top:89%;width:4px;height:4px;animation-duration:13s;animation-delay:-10s"></i>
+    <i style="left:10%;top:48%;width:2px;height:2px;animation-duration:24s;animation-delay:-8s"></i>
+    <i style="left:39%;top:44%;width:2px;height:2px;animation-duration:26s;animation-delay:-18s"></i>
+    <i style="left:66%;top:41%;width:3px;height:3px;animation-duration:22s;animation-delay:-12s"></i>
+    <i style="left:87%;top:47%;width:2px;height:2px;animation-duration:25s;animation-delay:-15s"></i>
+  </div>
   <div class="wrap rv">
     <h2 class="sec-t gold center">מה מחכה לכם בבוקר המדהים הזה
       <svg class="star3d" viewBox="0 0 28 28" aria-hidden="true">
@@ -596,8 +633,8 @@ summary::after{transition:transform .3s ease}
     <p>ריטריט וולנס - 21.8.26 - LAKE TLV, פארק מנחם בגין, תל אביב</p>
     <p class="ask">שאלות? דברו איתנו</p>
     <a class="wa" href="https://wa.me/972533815167">
-      <span class="wa-emoji" aria-hidden="true">💬</span>
-      <span class="phone">053-381-5167</span>
+      <span class="wa-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4M12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1 1 12 21.8M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2"/></svg></span>
+      <span class="phone">053-3815167</span>
     </a>
   </div>
 </footer>
