@@ -205,6 +205,13 @@ footer .ask{margin:14px 0 8px}
 .arrows svg{transform:none; margin-bottom:-13px; opacity:.3; animation:flowarr 1.6s ease-in-out infinite}
 .arrows svg:nth-child(2){animation-delay:.2s}
 .arrows svg:nth-child(3){animation-delay:.4s; margin-bottom:0}
+.arrows{display:flex; flex-direction:column; align-items:center; gap:0; margin:26px 0 30px}
+.arrows svg{width:64px; height:30px; stroke:var(--gold); fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; transform:none; margin-bottom:-12px; animation:bobarr 1.6s ease-in-out infinite}
+.arrows svg:nth-child(1){opacity:.3; animation-delay:0s}
+.arrows svg:nth-child(2){opacity:.6; animation-delay:.18s}
+.arrows svg:nth-child(3){opacity:1; animation-delay:.36s; margin-bottom:0}
+@keyframes bobarr{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
+@media (prefers-reduced-motion:reduce){.arrows svg{animation:none}}
 </style>
 
 <div class="sky">
@@ -234,10 +241,6 @@ footer .ask{margin:14px 0 8px}
       </svg>
     </span>
     <p class="cta-note">* לאחר מילוי הצהרת הבריאות תועבר לקבוצת הווצאפ לעידכונים.</p>
-    <a class="cal" id="cal" href="https://calendar.google.com/calendar/r">
-      <span class="cal-emoji" aria-hidden="true">📅</span>
-      הוספת המפגש ליומן
-    </a>
   </div>
 
   </main>
@@ -256,22 +259,7 @@ footer .ask{margin:14px 0 8px}
 </div>
 
 <script>
-(function(){
-  var a=document.getElementById('cal');
-  if(!a) return;
-  var p={
-    action:'TEMPLATE',
-    text:'ריטריט וולנס 💝 עם אייל אברהם לוי ב-Lake TLV',
-    dates:'20260821T053000Z/20260821T103000Z',
-    location:'LAKE TLV, פארק מנחם בגין, תל אביב',
-    details:'ריטריט וולנס: סאונד הילינג, יוגה, נשימות וטבילה במי קרח. 08:30-13:30.'
-  };
-  var q=[];
-  for(var k in p){ q.push(k+'='+encodeURIComponent(p[k])); }
-  a.href='https://calendar.google.com/calendar/render?'+q.join('&');
-  a.target='_blank';
-  a.rel='noopener';
-})();
+
 
 // Signature pad
 
