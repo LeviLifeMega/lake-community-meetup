@@ -217,7 +217,8 @@ section{padding:84px 0}
   background:var(--gold); box-shadow:0 0 0 4px rgba(61,219,196,.16);
 }
 .time b{display:block; color:#fff; font-size:15px; letter-spacing:.4px}
-.time span{color:#8ff5e2; font-size:17.5px; text-shadow:0 0 14px rgba(61,219,196,.45)}
+.time span{color:#8ff5e2; font-size:clamp(17px,2vw,28px); line-height:1.55; text-shadow:0 0 14px rgba(61,219,196,.45)}
+.time b{font-size:clamp(15px,1.2vw,18px)}
 .bio p{font-size:18.5px}
 .bio{display:grid; grid-template-columns:.7fr 1.3fr; gap:26px; align-items:center}
 .bio img{border-radius:20px; background:linear-gradient(180deg,rgba(15,138,114,.22),rgba(61,219,196,.1))}
@@ -250,12 +251,12 @@ section{padding:84px 0}
 .fld{display:grid; gap:6px}
 .fld span{font-size:18px; font-weight:700; color:#fff}
 .fld input{
-  width:100%; font:inherit; font-size:18px; color:#2b1d05; background:#fbf3de;
-  border:1px solid #e8d6a8; border-radius:12px; padding:13px 15px; outline:none;
+  width:100%; font:inherit; font-size:18px; color:#2b1d05; background:#fdf8ec;
+  border:1px solid #f0e3bf; border-radius:12px; padding:13px 15px; outline:none;
   transition:border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
 .fld input::placeholder{color:rgba(43,29,5,.4)}
-.fld input:focus{border-color:var(--gold); background:#fff8e8; box-shadow:0 0 0 3px rgba(242,194,96,.25)}
+.fld input:focus{border-color:var(--gold); background:#fffdf6; box-shadow:0 0 0 3px rgba(242,194,96,.25)}
 .fld input.bad{border-color:#c0392b; background:#fbe4e1}
 .signup-form .cta{width:100%; margin-top:4px; cursor:pointer; padding-top:13px; padding-bottom:13px}
 .btn-emoji{font-size:30px; line-height:1; flex:none}
@@ -419,15 +420,15 @@ summary::after{transition:transform .3s ease}
       <form class="signup-form" novalidate>
         <label class="fld">
           <span>שם מלא:</span>
-          <input type="text" name="name" autocomplete="name" required placeholder="ישראל ישראלי">
+          <input type="text" name="name" autocomplete="name" required>
         </label>
         <label class="fld">
           <span>אימייל:</span>
-          <input type="email" name="email" autocomplete="email" required placeholder="name@example.com" dir="ltr">
+          <input type="email" name="email" autocomplete="email" required dir="ltr">
         </label>
         <label class="fld">
           <span>טלפון:</span>
-          <input type="tel" name="tel" autocomplete="tel" required placeholder="050-0000000" dir="ltr" inputmode="tel">
+          <input type="tel" name="tel" autocomplete="tel" required dir="ltr" inputmode="tel">
         </label>
         <label class="consent">
           <input type="checkbox" name="consent" required>
@@ -550,11 +551,11 @@ summary::after{transition:transform .3s ease}
     <h2 class="sec-t gold center">לוח הבוקר ⏰</h2>
     <p class="sec-s center">08:30 - 13:30, LAKE TLV</p>
     <ul class="time">
-      <li><b>08:30</b><span>הגעה, התארגנות והתכנסות</span></li>
-      <li><b>09:00</b><span>סאונד הילינג - מסע צלילים מרפא</span></li>
-      <li><b>10:15</b><span>יוגה ויניאסה - זרימה מול המים</span></li>
-      <li><b>11:30</b><span>סדנת נשימות וטבילה במי קרח</span></li>
-      <li><b>13:30</b><span>סיום, זמן חופשי ליהנות מהמתחם</span></li>
+      <li><b>08:30</b><span>הגעה, התארגנות והתכנסות ☕</span></li>
+      <li><b>09:00</b><span>סאונד הילינג - מסע צלילים מרפא 🔔</span></li>
+      <li><b>10:15</b><span>יוגה ויניאסה - זרימה מול המים 🧘</span></li>
+      <li><b>11:30</b><span>סדנת נשימות וטבילה במי קרח 🧊</span></li>
+      <li><b>13:30</b><span>סיום, זמן חופשי ליהנות מהמתחם 🌊</span></li>
     </ul>
   </div>
 </section>
@@ -601,15 +602,15 @@ summary::after{transition:transform .3s ease}
       <form class="signup-form" id="signup-form" novalidate>
         <label class="fld">
           <span>שם מלא:</span>
-          <input type="text" id="f-name" name="name" autocomplete="name" required placeholder="ישראל ישראלי">
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
         </label>
         <label class="fld">
           <span>אימייל:</span>
-          <input type="email" id="f-mail" name="email" autocomplete="email" required placeholder="name@example.com" dir="ltr">
+          <input type="email" id="f-mail" name="email" autocomplete="email" required dir="ltr">
         </label>
         <label class="fld">
           <span>טלפון:</span>
-          <input type="tel" id="f-tel" name="tel" autocomplete="tel" required placeholder="050-0000000" dir="ltr" inputmode="tel">
+          <input type="tel" id="f-tel" name="tel" autocomplete="tel" required dir="ltr" inputmode="tel">
         </label>
         <label class="consent">
           <input type="checkbox" name="consent" required>
