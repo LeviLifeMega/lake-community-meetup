@@ -167,6 +167,23 @@ h1{background:linear-gradient(180deg,#fff6df 0%,#f2c260 55%,#c98f2a 100%); -webk
 .joined-shot{max-width:420px; margin:0 auto 16px}
 main{padding-top:16px}
 @media (prefers-reduced-motion:reduce){.arrows svg{animation:none; opacity:.8}}
+.circled{position:relative; display:inline-block}
+.circle-draw{position:absolute; inset:-15px -26px; overflow:visible; pointer-events:none}
+.circle-draw path{
+  fill:none; stroke:#ff4d4d; stroke-width:3; stroke-linecap:round; stroke-linejoin:round;
+  vector-effect:non-scaling-stroke; stroke-dasharray:920; stroke-dashoffset:920;
+  filter:drop-shadow(0 0 6px rgba(255,77,77,.45));
+  animation:drawcircle 6s ease-in-out infinite;
+}
+@keyframes drawcircle{
+  0%{stroke-dashoffset:920; opacity:1}
+  28%{stroke-dashoffset:0; opacity:1}
+  82%{stroke-dashoffset:0; opacity:1}
+  95%{stroke-dashoffset:0; opacity:0}
+  100%{stroke-dashoffset:920; opacity:0}
+}
+.final .cta-note{margin:18px 0 0; font-size:14px; color:var(--txt2)}
+@media (prefers-reduced-motion:reduce){.circle-draw path{animation:none; stroke-dashoffset:0}}
 </style>
 
 <div class="sky">
@@ -186,10 +203,16 @@ main{padding-top:16px}
       <svg viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
       <svg viewBox="0 0 44 24"><path d="M4 5l18 15L40 5"/></svg>
     </div>
-    <a class="cta" href="https://sprw.io/stt-bOR4Y" target="_blank" rel="noopener">
-      <span class="cal-emoji" aria-hidden="true">📋</span>
-      למילוי הצהרת בריאות
-    </a>
+    <span class="circled">
+      <a class="cta" href="https://sprw.io/stt-bOR4Y" target="_blank" rel="noopener">
+        <span class="cal-emoji" aria-hidden="true">📋</span>
+        למילוי הצהרת בריאות
+      </a>
+      <svg class="circle-draw" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M24,54 C22,26 80,11 152,10 C230,9 286,25 287,51 C288,79 226,93 148,92 C72,91 18,79 21,53 C24,31 62,17 124,12"/>
+      </svg>
+    </span>
+    <p class="cta-note">* לאחר מילוי הצהרת הבריאות תפתח לך גישה לקבוצת העידכונים בווצאפ.</p>
     <a class="cal" id="cal" href="https://calendar.google.com/calendar/r">
       <span class="cal-emoji" aria-hidden="true">📅</span>
       הוספת המפגש ליומן
