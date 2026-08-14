@@ -444,6 +444,21 @@ footer .logo-img{margin-bottom:10px}
 footer p{margin:3px 0}
 footer .ask{margin:14px 0 8px}
 .wa{margin-top:2px}
+.price-new small:last-child{position:relative}
+.price-new small:last-child::after{
+  content:""; position:absolute; inset-inline:-5px; bottom:-7px; height:3px;
+  background:#ff4d4d; border-radius:3px; transform-origin:right; transform:scaleX(0);
+  box-shadow:0 0 10px rgba(255,77,77,.7);
+  animation:underlineonly 3.4s ease-in-out infinite;
+}
+@keyframes underlineonly{
+  0%{transform:scaleX(0); opacity:1}
+  28%{transform:scaleX(1); opacity:1}
+  80%{transform:scaleX(1); opacity:1}
+  94%{transform:scaleX(1); opacity:0}
+  100%{transform:scaleX(0); opacity:0}
+}
+@media (prefers-reduced-motion:reduce){.price-new small:last-child::after{animation:none; transform:scaleX(1)}}
 </style>
 
 <div class="sky anim">
