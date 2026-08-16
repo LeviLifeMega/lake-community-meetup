@@ -147,7 +147,7 @@ h1{
   pointer-events:none;
   z-index:8;
 }
-.youtube-player,.youtube-player iframe{
+.vimeo-player,.vimeo-player iframe{
   position:absolute;
   inset:0;
   width:100%;
@@ -270,8 +270,8 @@ h1{
     <div class="copy">
       <h1 id="page-title">הגיע הזמן <span class="drawn-underline">להרים<svg viewBox="0 0 180 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C22 5.7 48 5 78 5 H168 C174 5 178 7.2 178 10 C178 12.8 175.5 14 170 14 H78 C48 13.8 22 11.7 2 8 Z"/></svg></span> את הרף של עצמך</h1>
     </div>
-    <div class="video-shell is-idle" id="video-shell" aria-label="סרטון מיוטיוב">
-      <div class="youtube-player" id="youtube-video"></div>
+    <div class="video-shell is-idle" id="video-shell" aria-label="סרטון מ-Vimeo">
+      <div class="vimeo-player" id="vimeo-video"></div>
       <div class="video-cover" id="video-cover">
         <button class="cover-play" id="cover-play" type="button" aria-label="הפעלת הסרטון">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -295,7 +295,8 @@ h1{
   </section>
 </main>
 <script>
-const YOUTUBE_ID = "4-6zxdMPc9w";
+const VIMEO_ID = 1218562629;
+const VIMEO_POSTER = "https://i.vimeocdn.com/video/2190543104-6b134dbd463b17c4b57967f330752964b79d31625d82773a9b6928539429ae5e-d_960?region=us";
 const shell = document.getElementById("video-shell");
 const cover = document.getElementById("video-cover");
 const coverPlay = document.getElementById("cover-play");
@@ -307,7 +308,7 @@ let playerReady = false;
 let pendingPlay = false;
 let revealTimer;
 
-cover.style.backgroundImage = `linear-gradient(180deg,rgba(3,15,14,.02),rgba(3,15,14,.14)),url(https://i.ytimg.com/vi/${YOUTUBE_ID}/maxresdefault.jpg)`;
+cover.style.backgroundImage = `linear-gradient(180deg,rgba(3,15,14,.02),rgba(3,15,14,.14)),url(${VIMEO_POSTER})`;
 
 function setPlaying(isPlaying) {
   clearTimeout(revealTimer);
@@ -334,60 +335,70 @@ function playVideo() {
     pendingPlay = true;
     return;
   }
-  player.playVideo();
+  player.play().catch(() => {});
 }
 
 coverPlay.addEventListener("click",playVideo);
-playToggle.addEventListener("click",() => {
+playToggle.addEventListener("click",async () => {
   if (!playerReady) return;
-  if (player.getPlayerState() === YT.PlayerState.PLAYING) player.pauseVideo();
-  else player.playVideo();
+  try {
+    if (await player.getPaused()) await player.play();
+    else await player.pause();
+  } catch {}
 });
-volumeToggle.addEventListener("click",() => {
+volumeToggle.addEventListener("click",async () => {
   if (!playerReady) return;
-  if (player.isMuted()) player.unMute();
-  else player.mute();
-  setMuted(player.isMuted());
+  try {
+    const isMuted = await player.getMuted();
+    await player.setMuted(!isMuted);
+    setMuted(!isMuted);
+  } catch {}
 });
-fullscreenToggle.addEventListener("click",() => {
-  if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
-  else if (shell.requestFullscreen) shell.requestFullscreen();
-  else if (shell.webkitRequestFullscreen) shell.webkitRequestFullscreen();
-  else if (playerReady && player.getIframe().webkitEnterFullscreen) player.getIframe().webkitEnterFullscreen();
+fullscreenToggle.addEventListener("click",async () => {
+  if (document.fullscreenElement && document.exitFullscreen) {
+    await document.exitFullscreen();
+  } else if (shell.requestFullscreen) {
+    await shell.requestFullscreen();
+  } else if (shell.webkitRequestFullscreen) {
+    shell.webkitRequestFullscreen();
+  } else if (playerReady) {
+    try { await player.requestFullscreen(); } catch {}
+  }
 });
 
-window.onYouTubeIframeAPIReady = function() {
-  player = new YT.Player("youtube-video",{
-    host:"https://www.youtube.com",
-    videoId:YOUTUBE_ID,
-    playerVars:{
-      controls:0,
-      disablekb:1,
-      fs:0,
-      iv_load_policy:3,
-      playsinline:1,
-      rel:0,
-      origin:location.origin
-    },
-    events:{
-      onReady:() => {
-        playerReady = true;
-        player.setVolume(80);
-        setMuted(player.isMuted());
-        if (pendingPlay) {
-          pendingPlay = false;
-          player.playVideo();
-        }
-      },
-      onStateChange:event => {
-        setPlaying(event.data === YT.PlayerState.PLAYING);
-      }
-    }
+function initializeVimeoPlayer() {
+  player = new Vimeo.Player("vimeo-video",{
+    id:VIMEO_ID,
+    autoplay:false,
+    controls:false,
+    muted:false,
+    autopause:true,
+    playsinline:true,
+    title:false,
+    byline:false,
+    portrait:false,
+    dnt:true
   });
-};
+
+  player.on("play",() => setPlaying(true));
+  player.on("pause",() => setPlaying(false));
+  player.on("ended",() => setPlaying(false));
+  player.on("volumechange",data => setMuted(Boolean(data.muted || data.volume === 0)));
+
+  player.ready().then(async () => {
+    playerReady = true;
+    try { await player.setVolume(.8); } catch {}
+    try { setMuted(await player.getMuted()); } catch { setMuted(false); }
+    if (pendingPlay) {
+      pendingPlay = false;
+      playVideo();
+    }
+  }).catch(() => {});
+}
 
 const apiScript = document.createElement("script");
-apiScript.src = "https://www.youtube.com/iframe_api";
+apiScript.src = "https://player.vimeo.com/api/player.js";
+apiScript.onload = initializeVimeoPlayer;
 document.head.appendChild(apiScript);
 </script>
 </body>
