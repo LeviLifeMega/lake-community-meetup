@@ -147,88 +147,14 @@ h1{
   pointer-events:none;
   z-index:8;
 }
-.vimeo-player,.vimeo-player iframe{
+.video-shell iframe{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   border:0;
   display:block;
-  pointer-events:none;
 }
-.video-cover{
-  position:absolute;
-  inset:0;
-  z-index:3;
-  display:grid;
-  place-items:center;
-  background-position:center;
-  background-size:cover;
-  transition:opacity .2s ease,visibility .2s ease;
-}
-.video-cover::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,rgba(3,15,14,.08),rgba(3,15,14,.34));
-}
-.video-shell.is-playing .video-cover{opacity:0;visibility:hidden}
-.cover-play{
-  position:relative;
-  z-index:1;
-  width:78px;
-  height:78px;
-  display:grid;
-  place-items:center;
-  border:1px solid rgba(255,255,255,.22);
-  border-radius:50%;
-  background:var(--play);
-  color:#fff;
-  box-shadow:0 12px 30px rgba(255,0,0,.28),inset 0 1px 0 rgba(255,255,255,.16);
-  cursor:pointer;
-}
-.cover-play svg{width:34px;height:34px;transform:translateX(-2px)}
-.player-controls{
-  position:absolute;
-  z-index:7;
-  inset-inline:14px;
-  inset-block-end:14px;
-  min-height:54px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:5px;
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:18px;
-  background:rgba(4,18,17,.86);
-  box-shadow:0 12px 30px rgba(0,0,0,.28);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
-.video-shell.is-idle .player-controls{justify-content:flex-end}
-.video-shell.is-idle .play-toggle{display:none}
-.player-control{
-  width:44px;
-  height:44px;
-  display:grid;
-  place-items:center;
-  flex:0 0 44px;
-  padding:0;
-  border:0;
-  border-radius:13px;
-  color:#e7fbf6;
-  background:transparent;
-  cursor:pointer;
-  transition:background .16s ease,color .16s ease;
-}
-.player-control:hover,.player-control:focus-visible{background:rgba(61,219,196,.14);color:#fff;outline:none}
-.player-control svg{width:23px;height:23px}
-.pause-icon,.volume-off-icon{display:none}
-.video-shell.is-playing .play-icon{display:none}
-.video-shell.is-playing .pause-icon{display:block}
-.video-shell.is-muted .volume-on-icon{display:none}
-.video-shell.is-muted .volume-off-icon{display:block}
 .cta{
   min-height:58px;
   display:inline-flex;
@@ -257,7 +183,7 @@ h1{
   .copy{gap:10px;margin-block-end:36px}
   h1{font-size:clamp(34px,11vw,48px);max-width:11ch;white-space:normal}
   .video-shell{width:min(100%,360px);margin-block-end:36px;border-radius:var(--r-lg)}
-  .cover-play{width:64px;height:64px}
+
   .cta{width:100%;min-height:60px;padding:16px 20px;font-size:18px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
@@ -270,136 +196,12 @@ h1{
     <div class="copy">
       <h1 id="page-title">הגיע הזמן <span class="drawn-underline">להרים<svg viewBox="0 0 180 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C22 5.7 48 5 78 5 H168 C174 5 178 7.2 178 10 C178 12.8 175.5 14 170 14 H78 C48 13.8 22 11.7 2 8 Z"/></svg></span> את הרף של עצמך</h1>
     </div>
-    <div class="video-shell is-idle" id="video-shell" aria-label="סרטון מ-Vimeo">
-      <div class="vimeo-player" id="vimeo-video"></div>
-      <div class="video-cover" id="video-cover">
-        <button class="cover-play" id="cover-play" type="button" aria-label="הפעלת הסרטון">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-      </div>
-      <div class="player-controls" aria-label="בקרי הסרטון">
-        <button class="player-control play-toggle" id="play-toggle" type="button" aria-label="השהיית הסרטון">
-          <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
-        </button>
-        <button class="player-control" id="volume-toggle" type="button" aria-label="השתקת הסרטון">
-          <svg class="volume-on-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm12.5 3a3.5 3.5 0 0 0-2-3.15v6.3A3.5 3.5 0 0 0 15.5 12zm-2-7v2.05a5.5 5.5 0 0 1 0 9.9V19a7.5 7.5 0 0 0 0-14z"/></svg>
-          <svg class="volume-off-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.6 3 2.2-2.2-1.4-1.4-2.2 2.2L13 8.4 11.6 9.8l2.2 2.2-2.2 2.2 1.4 1.4 2.2-2.2 2.2 2.2 1.4-1.4z"/></svg>
-        </button>
-        <button class="player-control" id="fullscreen-toggle" type="button" aria-label="הגדלה למסך מלא">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zm-3-12v2h3v3h2V5h-5z"/></svg>
-        </button>
-      </div>
+    <div class="video-shell" id="video-shell" aria-label="סרטון מ-Vimeo">
+      <iframe id="vimeo-video" src="https://player.vimeo.com/video/1218562629" title="הגיע הזמן להרים את הרף של עצמך" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
     <a class="cta" href="https://levilife.co.il/רטריט_של_אלופים" target="_blank" rel="noopener">אני רוצה להרים את הרף של עצמי</a>
   </section>
 </main>
-<script>
-const VIMEO_ID = 1218562629;
-const VIMEO_POSTER = "https://i.vimeocdn.com/video/2190543104-6b134dbd463b17c4b57967f330752964b79d31625d82773a9b6928539429ae5e-d_960?region=us";
-const shell = document.getElementById("video-shell");
-const cover = document.getElementById("video-cover");
-const coverPlay = document.getElementById("cover-play");
-const playToggle = document.getElementById("play-toggle");
-const volumeToggle = document.getElementById("volume-toggle");
-const fullscreenToggle = document.getElementById("fullscreen-toggle");
-let player;
-let playerReady = false;
-let pendingPlay = false;
-let revealTimer;
 
-cover.style.backgroundImage = `linear-gradient(180deg,rgba(3,15,14,.02),rgba(3,15,14,.14)),url(${VIMEO_POSTER})`;
-
-function setPlaying(isPlaying) {
-  clearTimeout(revealTimer);
-  if (isPlaying) {
-    revealTimer = setTimeout(() => {
-      shell.classList.add("is-playing");
-      shell.classList.remove("is-idle");
-      playToggle.setAttribute("aria-label","השהיית הסרטון");
-    },1200);
-  } else {
-    shell.classList.remove("is-playing");
-    shell.classList.add("is-idle");
-    playToggle.setAttribute("aria-label","הפעלת הסרטון");
-  }
-}
-
-function setMuted(isMuted) {
-  shell.classList.toggle("is-muted",isMuted);
-  volumeToggle.setAttribute("aria-label",isMuted ? "הפעלת קול" : "השתקת הסרטון");
-}
-
-function playVideo() {
-  if (!playerReady) {
-    pendingPlay = true;
-    return;
-  }
-  player.play().catch(() => {});
-}
-
-coverPlay.addEventListener("click",playVideo);
-playToggle.addEventListener("click",async () => {
-  if (!playerReady) return;
-  try {
-    if (await player.getPaused()) await player.play();
-    else await player.pause();
-  } catch {}
-});
-volumeToggle.addEventListener("click",async () => {
-  if (!playerReady) return;
-  try {
-    const isMuted = await player.getMuted();
-    await player.setMuted(!isMuted);
-    setMuted(!isMuted);
-  } catch {}
-});
-fullscreenToggle.addEventListener("click",async () => {
-  if (document.fullscreenElement && document.exitFullscreen) {
-    await document.exitFullscreen();
-  } else if (shell.requestFullscreen) {
-    await shell.requestFullscreen();
-  } else if (shell.webkitRequestFullscreen) {
-    shell.webkitRequestFullscreen();
-  } else if (playerReady) {
-    try { await player.requestFullscreen(); } catch {}
-  }
-});
-
-function initializeVimeoPlayer() {
-  player = new Vimeo.Player("vimeo-video",{
-    id:VIMEO_ID,
-    autoplay:false,
-    controls:false,
-    muted:false,
-    autopause:true,
-    playsinline:true,
-    title:false,
-    byline:false,
-    portrait:false,
-    dnt:true
-  });
-
-  player.on("play",() => setPlaying(true));
-  player.on("pause",() => setPlaying(false));
-  player.on("ended",() => setPlaying(false));
-  player.on("volumechange",data => setMuted(Boolean(data.muted || data.volume === 0)));
-
-  player.ready().then(async () => {
-    playerReady = true;
-    try { await player.setVolume(.8); } catch {}
-    try { setMuted(await player.getMuted()); } catch { setMuted(false); }
-    if (pendingPlay) {
-      pendingPlay = false;
-      playVideo();
-    }
-  }).catch(() => {});
-}
-
-const apiScript = document.createElement("script");
-apiScript.src = "https://player.vimeo.com/api/player.js";
-apiScript.onload = initializeVimeoPlayer;
-document.head.appendChild(apiScript);
-</script>
 </body>
 </html>
